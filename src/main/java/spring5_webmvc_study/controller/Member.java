@@ -18,12 +18,23 @@ public class Member {
 		this.password = newPassword;
 	}
 	
+	public boolean matchPassword(String password) {
+		return this.password.equals(password);
+	}
+	
+	public Member() {
+	}
+
 	public Member(String email, String password, String name, LocalDateTime registerDateTime) {
-		super();
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.registerDateTime = registerDateTime;
+	}
+
+	public Member(String email, String password) {
+		this.email = email;
+		this.password = password;
 	}
 
 	public String getEmail() {

@@ -29,14 +29,14 @@ public class MemberDao {
 	/* 결과가 1개 이상인 경우 */
 	public Member selectByEmail(String email) {
 		List<Member> results =
-				jdbcTemplate.query("select * from member where email = ?", 
+				jdbcTemplate.query("select ID, EMAIL, PASSWORD, NAME, REGDATE from member where email = ?", 
 						new MemberRowMapper(), email);	
 		
 		return results.isEmpty() ? null: results.get(0);		
 	}
 	
 	public List<Member> selectAll(){
-		return jdbcTemplate.query("select * from member", new MemberRowMapper());
+		return jdbcTemplate.query("select ID, EMAIL, PASSWORD, NAME, REGDATE from member", new MemberRowMapper());
 	}
 	
 	/* 결과가 1행인 경우 */
