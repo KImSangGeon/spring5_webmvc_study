@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import spring5_webmvc_study.config.MemberConfig;
+import spring5_webmvc_study.password.ChangePasswordService;
 
 public class MainForMemberDao {
 
