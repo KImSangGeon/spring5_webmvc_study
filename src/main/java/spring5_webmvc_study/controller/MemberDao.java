@@ -2,6 +2,7 @@ package spring5_webmvc_study.controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -11,15 +12,29 @@ import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MemberDao {
-	
-	
+		
 	private JdbcTemplate jdbcTemplate;
+	private RowMapper<Member> memberRowMapper = new RowMapper<Member>() {
+		
+		@Override
+		public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+			Member member = 
+					new  Member(rs.getString("email"),
+					rs.getString("password"),
+					rs.getString("name"),
+					rs.getTimestamp("regdate").toLocalDateTime()
+					);
+			member.setId(rs.getLong("id"));
+			return member;
+		}
+	};
 	
 	@Autowired
 	public void setJdbcTemplate(DataSource dataSource) {
@@ -30,20 +45,23 @@ public class MemberDao {
 	/* 결과가 1개 이상인 경우 */
 	public Member selectByEmail(String email) {
 		List<Member> results =
-				jdbcTemplate.query("select ID, EMAIL, PASSWORD, NAME, REGDATE from member where email = ?", 
-						new MemberRowMapper(), email);	
+				jdbcTemplate.query("select ID, EMAIL, PASSWORD, NAME, REGDATE"
+														+ " from member where email = ?", 
+														memberRowMapper, email);	
 		
 		return results.isEmpty() ? null: results.get(0);		
 	}
 	
 	public List<Member> selectAll(){
-		return jdbcTemplate.query("select ID, EMAIL, PASSWORD, NAME, REGDATE from member", new MemberRowMapper());
+		return jdbcTemplate.query("select ID, EMAIL, PASSWORD, NAME, REGDATE"
+															+ " from member", 
+															memberRowMapper);
 	}
 	/* 날짜별 조회하기 */
 	public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to){
-		String sql = "select * from member where REGDATE between ? and ? order by regdate desc";
-		return jdbcTemplate.query(sql, new MemberRowMapper(), from, to);	
-			
+		return jdbcTemplate.query("select * from member where REGDATE"
+																+ " between ? and ? order by regdate desc",
+																memberRowMapper, from, to);				
 	}
 	
 	/* 결과가 1행인 경우 */
@@ -63,7 +81,8 @@ public class MemberDao {
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement pstmt = 
 						con.prepareStatement(
-								"insert into member(email, password, name, regdate) values (?, ?, ?, ?)", 
+								"insert into member(email, password, name, regdate)"
+								+ " values (?, ?, ?, ?)", 
 								new String[] {"id"});
 				pstmt.setString(1, member.getEmail());
 				pstmt.setString(2, member.getPassword());
