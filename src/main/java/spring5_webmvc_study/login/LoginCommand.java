@@ -4,6 +4,7 @@ public class LoginCommand {
 		private String email;
 		private String password;
 		private boolean rememberEmail;
+		
 		public String getEmail() {
 			return email;
 		}

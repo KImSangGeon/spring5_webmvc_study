@@ -10,4 +10,5 @@ unique key (EMAIL)
 select * from member;
 
 delete from member where id in ();
+select * from member where REGDATE between '2021-05-17' and '2021-05-26' order by regdate desc;
 

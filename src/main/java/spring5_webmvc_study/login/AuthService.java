@@ -13,6 +13,8 @@ public class AuthService {
 		@Autowired
 		private MemberDao memberDao;
 		
+	
+		
 		public AuthInfo authenicate(String email, String password) {
 			Member member = memberDao.selectByEmail(email);
 			if(member == null) {

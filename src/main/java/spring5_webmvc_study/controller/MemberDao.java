@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
@@ -37,6 +38,12 @@ public class MemberDao {
 	
 	public List<Member> selectAll(){
 		return jdbcTemplate.query("select ID, EMAIL, PASSWORD, NAME, REGDATE from member", new MemberRowMapper());
+	}
+	/* 날짜별 조회하기 */
+	public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to){
+		String sql = "select * from member where REGDATE between ? and ? order by regdate desc";
+		return jdbcTemplate.query(sql, new MemberRowMapper(), from, to);	
+			
 	}
 	
 	/* 결과가 1행인 경우 */
