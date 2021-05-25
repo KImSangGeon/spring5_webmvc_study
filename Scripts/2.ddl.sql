@@ -9,6 +9,5 @@ unique key (EMAIL)
 
 select * from member;
 
-
 delete from member where id in ();
 
