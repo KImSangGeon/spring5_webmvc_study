@@ -1,4 +1,4 @@
-package spring5_webmvc_study.password;
+package spring5_webmvc_study.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring5_webmvc_study.exception.WrongIdPasswordException;
 import spring5_webmvc_study.login.AuthInfo;
+import spring5_webmvc_study.password.ChangePasswordService;
+import spring5_webmvc_study.password.ChangePwdCommand;
+import spring5_webmvc_study.password.ChangePwdCommandValidator;
 
 
 @Controller

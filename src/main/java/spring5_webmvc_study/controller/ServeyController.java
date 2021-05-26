@@ -1,4 +1,4 @@
-package spring5_webmvc_study.survey;
+package spring5_webmvc_study.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+
+import spring5_webmvc_study.survey.AnsweredData;
+import spring5_webmvc_study.survey.Question;
 
 @Controller
 @RequestMapping("/servey")

@@ -1,4 +1,4 @@
-package spring5_webmvc_study.login;
+package spring5_webmvc_study.controller;
 
 import javax.servlet.http.HttpSession;
 

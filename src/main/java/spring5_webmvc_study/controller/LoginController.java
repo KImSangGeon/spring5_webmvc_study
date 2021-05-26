@@ -1,4 +1,4 @@
-package spring5_webmvc_study.login;
+package spring5_webmvc_study.controller;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import spring5_webmvc_study.exception.WrongIdPasswordException;
+import spring5_webmvc_study.login.AuthInfo;
+import spring5_webmvc_study.login.AuthService;
+import spring5_webmvc_study.login.LoginCommand;
+import spring5_webmvc_study.login.LoginCommandValidator;
 
 @Controller
 @RequestMapping("/login")
