@@ -13,7 +13,8 @@
 		<p>
 				<label>from: <form:input path="from" /></label><form:errors path="from" />~
 				<label>to: <form:input path="to"/></label><form:errors path="to"/>		
-				<input type = "submit" value ="조회">				   
+				<input type = "submit" value ="조회">		
+				<a href = "<c:url value = "/main"/>">메인</a>		   
 		</p>		
 		</form:form>
 		<c:if test= "${!empty members }">
