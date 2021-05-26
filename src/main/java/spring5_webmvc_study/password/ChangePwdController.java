@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import spring5_webmvc_study.controller.WrongIdPasswordException;
+import spring5_webmvc_study.exception.WrongIdPasswordException;
 import spring5_webmvc_study.login.AuthInfo;
 
 

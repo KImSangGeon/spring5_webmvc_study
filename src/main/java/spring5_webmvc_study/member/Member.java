@@ -1,6 +1,8 @@
-package spring5_webmvc_study.controller;
+package spring5_webmvc_study.member;
 
 import java.time.LocalDateTime;
+
+import spring5_webmvc_study.exception.WrongIdPasswordException;
 
 public class Member {
 

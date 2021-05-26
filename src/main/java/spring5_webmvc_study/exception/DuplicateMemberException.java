@@ -1,4 +1,4 @@
-package spring5_webmvc_study.controller;
+package spring5_webmvc_study.exception;
 
 @SuppressWarnings("serial")
 public class DuplicateMemberException extends RuntimeException {

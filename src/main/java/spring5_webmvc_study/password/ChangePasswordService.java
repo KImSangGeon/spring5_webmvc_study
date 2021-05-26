@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import spring5_webmvc_study.controller.Member;
-import spring5_webmvc_study.controller.MemberDao;
-import spring5_webmvc_study.controller.MemberNotFoundException;
+import spring5_webmvc_study.exception.MemberNotFoundException;
+import spring5_webmvc_study.member.Member;
+import spring5_webmvc_study.member.MemberDao;
 @Service
 public class ChangePasswordService {
 	@Autowired

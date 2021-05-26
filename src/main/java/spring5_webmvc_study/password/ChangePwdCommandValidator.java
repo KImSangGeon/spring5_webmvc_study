@@ -10,11 +10,11 @@ public class ChangePwdCommandValidator implements Validator {
 	public boolean supports(Class<?> clazz) {		
 		return ChangePwdCommand.class.isAssignableFrom(clazz);
 	}
-
 	@Override
 	public void validate(Object target, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "currentPasswordf", "required");
 		ValidationUtils.rejectIfEmpty(errors, "newPassword", "required");
+		
 	}
 
 }

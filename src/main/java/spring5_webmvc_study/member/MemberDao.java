@@ -1,4 +1,4 @@
-package spring5_webmvc_study.controller;
+package spring5_webmvc_study.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

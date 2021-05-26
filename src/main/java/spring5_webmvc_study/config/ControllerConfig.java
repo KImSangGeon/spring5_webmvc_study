@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Configuration;
 																		"spring5_webmvc_study.survey",
 																		"spring5_webmvc_study.login",
 																		"spring5_webmvc_study.password",
-																		"spring5_webmvc_study.common"})
+																		"spring5_webmvc_study.common",
+																		"spring5_webmvc_study.member"})
 public class ControllerConfig {
 
 }

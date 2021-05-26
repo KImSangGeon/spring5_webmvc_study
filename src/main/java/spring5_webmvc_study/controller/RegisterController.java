@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import spring5_webmvc_study.exception.DuplicateMemberException;
+import spring5_webmvc_study.member.MemberRegisterService;
+import spring5_webmvc_study.member.RegisterRequest;
+import spring5_webmvc_study.member.RegisterRequestValidator;
+
 
 @Controller
 public class RegisterController {

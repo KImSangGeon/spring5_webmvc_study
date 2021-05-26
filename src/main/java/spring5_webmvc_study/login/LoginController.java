@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import spring5_webmvc_study.controller.WrongIdPasswordException;
+import spring5_webmvc_study.exception.WrongIdPasswordException;
 
 @Controller
 @RequestMapping("/login")

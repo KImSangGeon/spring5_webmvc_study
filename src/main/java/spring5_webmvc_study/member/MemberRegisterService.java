@@ -1,9 +1,11 @@
-package spring5_webmvc_study.controller;
+package spring5_webmvc_study.member;
 
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import spring5_webmvc_study.exception.DuplicateMemberException;
 
 @Service
 public class MemberRegisterService {

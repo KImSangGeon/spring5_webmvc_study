@@ -1,4 +1,4 @@
-package spring5_webmvc_study.controller;
+package spring5_webmvc_study.member;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

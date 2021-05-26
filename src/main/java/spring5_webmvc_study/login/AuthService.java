@@ -3,9 +3,9 @@ package spring5_webmvc_study.login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import spring5_webmvc_study.controller.Member;
-import spring5_webmvc_study.controller.MemberDao;
-import spring5_webmvc_study.controller.WrongIdPasswordException;
+import spring5_webmvc_study.exception.WrongIdPasswordException;
+import spring5_webmvc_study.member.Member;
+import spring5_webmvc_study.member.MemberDao;
 
 @Component
 public class AuthService {
