@@ -110,5 +110,13 @@ public class MemberDao {
 		jdbcTemplate.update(psc);
 	}
 	
+	/* GetId PathVariable */
+	public Member selectById(Long memId) {
+		String sql = "select ID, EMAIL, PASSWORD, NAME, REGDATE from  member where id = ?";
+		List<Member> results = jdbcTemplate.query(sql, memberRowMapper, memId);
+		System.out.println(results);
+		return results.isEmpty() ?  null : results.get(0);		
+	}
+	
 
 }
