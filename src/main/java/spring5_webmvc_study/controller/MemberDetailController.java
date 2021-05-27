@@ -21,13 +21,12 @@ public class MemberDetailController {
 		@GetMapping("/members/{id}")
 		public ModelAndView detail(@PathVariable("id") Long memId) {
 			Member member = memberDao.selectById(memId);
-			System.out.println(member);
 			if(member == null) {
 				throw new MemberNotFoundException();
 			}
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("member", member);
-			mav.setViewName("member/memberDetail");
+			mav.setViewName("member/memberDetail");		
 			
 			return mav;			
 		}
