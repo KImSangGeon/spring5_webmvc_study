@@ -21,6 +21,12 @@ import org.springframework.stereotype.Component;
 public class MemberDao {
 		
 	private JdbcTemplate jdbcTemplate;
+	
+//	@Autowired
+//	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+//		this.jdbcTemplate = jdbcTemplate;
+//	}
+
 	private RowMapper<Member> memberRowMapper = new RowMapper<Member>() {
 		
 		@Override
