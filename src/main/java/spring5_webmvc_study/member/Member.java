@@ -2,14 +2,17 @@ package spring5_webmvc_study.member;
 
 import java.time.LocalDateTime;
 
-import spring5_webmvc_study.exception.WrongIdPasswordException;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import spring5_webmvc_study.exception.WrongIdPasswordException;
+@JsonIgnoreProperties({"password"})
 public class Member {
 
 	private Long id;
 	private String email;
 	private String password;
 	private String name;
+//	@JsonFormat(pattern = "yyyyMMddHHmmss")
 	private LocalDateTime registerDateTime;
 	
 	public void changePassword(String oldPassword, String  newPassword) {
@@ -24,8 +27,7 @@ public class Member {
 		return this.password.equals(password);
 	}
 	
-	public Member() {
-	}
+	public Member() {}
 
 	public Member(String email, String password, String name, LocalDateTime registerDateTime) {
 		this.email = email;

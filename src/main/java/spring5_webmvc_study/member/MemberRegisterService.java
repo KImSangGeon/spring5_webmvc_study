@@ -9,6 +9,7 @@ import spring5_webmvc_study.exception.DuplicateMemberException;
 
 @Service
 public class MemberRegisterService {
+	
 		@Autowired
 		private MemberDao memberDao;
 
